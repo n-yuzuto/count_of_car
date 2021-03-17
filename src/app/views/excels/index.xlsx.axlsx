@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+
+@excels.each_with_index do |excel, index|
+  wb.add_worksheet(name: excel.title) do |sheet|
+    sheet.add_row [ "date", "name", "place", "title" ]
+    sheet.add_row [ excel.day, excel.name, excel.place, excel.title ]
+  end
+end
