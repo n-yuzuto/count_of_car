@@ -1,8 +1,11 @@
 wb = xlsx_package.workbook
+wb.styles do |style|
+  highlight_cell = style.add_style(bg_color: "EFC376")
 
-@excels.each_with_index do |excel, index|
-  wb.add_worksheet(name: excel.title) do |sheet|
-    sheet.add_row [ "date", "name", "place", "title" ]
+  wb.add_worksheet(name: "excel") do |sheet|
+  sheet.add_row [ "date", "name", "place", "title" ]
+    @excels.each do |excel|
     sheet.add_row [ excel.day, excel.name, excel.place, excel.title ]
+    end
   end
 end
